@@ -1,0 +1,393 @@
+@import "tailwindcss";
+
+/* =========================================================
+   DESIGN SYSTEM — "Harshit & Sakshi" wedding memories
+   Palette drawn from the wedding itself: bridal maroon,
+   temple gold, warm ivory. Signature motif: thin gold
+   ornamental frame with corner flourishes (see Hero).
+========================================================= */
+
+:root {
+  /* Core palette */
+  --ivory: #fbf3e7;
+  --ivory-warm: #f7e9d7;
+  --maroon: #6e1423;
+  --maroon-deep: #4a0e18;
+  --gold: #c9a227;
+  --gold-light: #e8ce86;
+  --charcoal: #2a1810;
+  --muted: #8a7361;
+
+  /* Semantic aliases (kept for compatibility with existing components) */
+  --background: var(--ivory);
+  --foreground: var(--charcoal);
+
+  --primary: var(--maroon);
+  --secondary: var(--ivory-warm);
+  --accent: var(--gold);
+
+  --white: #ffffff;
+  --card: #ffffff;
+
+  --border: #e4d3be;
+
+  --muted-foreground: var(--muted);
+
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 30px;
+  --radius-full: 999px;
+
+  /* Shadows */
+  --shadow-sm: 0 10px 30px rgba(74, 14, 24, 0.08);
+  --shadow-md: 0 20px 50px rgba(74, 14, 24, 0.12);
+  --shadow-lg: 0 30px 80px rgba(74, 14, 24, 0.18);
+
+  /* Transition */
+  --transition: all .35s ease;
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+::selection {
+  background: var(--gold-light);
+  color: var(--maroon-deep);
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-light);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.container {
+  width: min(90%, 1400px);
+  margin-inline: auto;
+}
+
+.section {
+  padding: 60px 0;
+}
+
+.section-sm {
+  padding: 80px 0;
+}
+
+.fullscreen {
+  min-height: 100vh;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+.heading-xl {
+  font-family: var(--font-heading);
+  font-size: clamp(3.2rem, 7vw, 6.25rem);
+  font-weight: 600;
+  line-height: .92;
+  letter-spacing: -.03em;
+}
+
+.heading-lg {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4.6vw, 3.8rem);
+  line-height: 1;
+}
+
+.heading-md {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  color: white;
+  font-size: clamp(3.2rem, 7vw, 6.25rem);
+  line-height: .9;
+  letter-spacing: -.03em;
+  text-shadow: 0 10px 35px rgba(20, 6, 10, .55);
+}
+
+.hero-subtitle {
+  color: var(--gold-light);
+  text-transform: uppercase;
+  letter-spacing: .6em;
+  font-size: .72rem;
+}
+
+.hero-date {
+  color: rgba(255, 255, 255, .9);
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  font-size: .85rem;
+}
+
+.hero-description {
+  color: rgba(255, 255, 255, .82);
+  max-width: 580px;
+  margin-inline: auto;
+  line-height: 1.85;
+  font-size: .95rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.section-subtitle {
+  color: var(--gold);
+  letter-spacing: .4em;
+  text-transform: uppercase;
+  font-size: .75rem;
+}
+
+.text-center { text-align: center; }
+.text-lg { font-size: 1.05rem; }
+
+p {
+  color: var(--muted-foreground);
+  line-height: 1.9;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 42px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .1);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(232, 206, 134, .5);
+  color: white;
+  transition: var(--transition);
+  font-weight: 500;
+  letter-spacing: .05em;
+}
+
+.btn-primary:hover {
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+  color: var(--maroon-deep);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(74, 14, 24, .25);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 42px;
+  border-radius: 999px;
+  background: var(--maroon);
+  color: white;
+  transition: var(--transition);
+}
+
+.btn-secondary:hover {
+  background: var(--maroon-deep);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* =========================================================
+   GLASS
+========================================================= */
+
+.glass {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, .15);
+  border: 1px solid rgba(232, 206, 134, .25);
+  box-shadow: var(--shadow-sm);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+/* Warm maroon-black wash, replacing a flat black overlay so
+   the photo keeps its warmth instead of going cold/grey. */
+.hero-overlay-warm {
+  background: linear-gradient(
+    180deg,
+    rgba(20, 6, 10, .78) 0%,
+    rgba(42, 14, 20, .32) 42%,
+    rgba(20, 6, 10, .82) 100%
+  );
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+/* Nav color/contrast logic lives in Navbar.jsx (scroll-state
+   driven). This file only supplies the palette it draws from. */
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card {
+  background: var(--card);
+  border-radius: 30px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-md);
+}
+
+/* =========================================================
+   UTILITIES
+========================================================= */
+
+.rounded-xl { border-radius: 30px; }
+.shadow-soft { box-shadow: var(--shadow-md); }
+
+.fade-mask {
+  mask-image: linear-gradient(to bottom, black 88%, transparent);
+}
+
+/* Ornamental divider — three-piece line/diamond/line, used to
+   mark section openings the way a wedding card marks a heading. */
+.divider-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.divider-ornament .line {
+  height: 1px;
+  width: 2.5rem;
+  background: var(--gold-light);
+  opacity: .7;
+}
+
+.divider-ornament .diamond {
+  height: 6px;
+  width: 6px;
+  transform: rotate(45deg);
+  border: 1px solid var(--gold-light);
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+.fade-up {
+  animation: fadeUp .8s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+  .container { width: 92%; }
+  .section { padding: 45px 0; }
+  .section-sm { padding: 30px 0; }
+  .hero-title { font-size: clamp(2.4rem, 12vw, 4rem); }
+  .heading-xl { font-size: clamp(2.4rem, 12vw, 4rem); }
+  .hero-description { font-size: .9rem; }
+  .hero-subtitle { letter-spacing: .4em; }
+  .hero-date { letter-spacing: .18em; }
+}

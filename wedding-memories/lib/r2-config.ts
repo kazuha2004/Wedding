@@ -19,24 +19,15 @@ export const folderToAccount: Record<string, string> = {
   "tilak": "account1",
   "wedding-1": "account1",
   "wedding-2": "account1",
-  // "wedding-3": "account1",
-  // "wedding-4": "account1",
-  // "wedding-5": "account1",
-  // "bride-pooja": "account1",
-  // "candid-1": "account1",
-  // "groom-haldi": "account2",
-  // "janeu": "account2",
-  // "tilak": "account3",
-  // "wedding-1": "account3",
-  // "wedding-2": "account3",
-  // "wedding-3": "account3",
-  // "wedding-4": "account3",
-  // "wedding-5": "account3",
+  "wedding-3": "account2",
+  "wedding-4": "account2",
+  "wedding-5": "account2",
 };
 
 // Each account's public R2.dev base URL (no trailing slash)
 export const accountBaseUrls: Record<string, string> = {
   account1: "https://pub-02bd9297cf6144c5bb2a3eacbb891bff.r2.dev",
+  account2: "https://pub-591331e9890e45fcbb7a8d7738acc75b.r2.dev",
   // account2: "https://pub-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.r2.dev",
   // account3: "https://pub-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.r2.dev",
 };
